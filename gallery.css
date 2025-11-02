@@ -1,0 +1,228 @@
+.gallery-hero {
+    background: linear-gradient(rgba(26, 82, 118, 0.9), rgba(40, 116, 166, 0.9)), 
+                url('https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+    background-size: cover;
+    background-position: center;
+    padding: 6rem 0 4rem;
+    color: white;
+    text-align: center;
+}
+
+.gallery-section {
+    padding: 5rem 0;
+    background: var(--white);
+}
+
+.gallery-filter {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+.gallery-filter-btn {
+    padding: 0.8rem 1.5rem;
+    border: 2px solid var(--primary);
+    background: transparent;
+    color: var(--primary);
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.gallery-filter-btn.active,
+.gallery-filter-btn:hover {
+    background: var(--primary);
+    color: white;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.gallery-item {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: var(--light);
+    aspect-ratio: 3/4;
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+.gallery-image-container {
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--light);
+    padding: 1rem;
+}
+
+.gallery-img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover .gallery-img {
+    transform: scale(1.1);
+}
+
+.gallery-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    color: white;
+    padding: 2rem 1.5rem 1.5rem;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover .gallery-caption {
+    transform: translateY(0);
+}
+
+.gallery-category {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background: var(--secondary);
+    color: var(--primary);
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+/* Lightbox Styles */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.9);
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.lightbox-content {
+    position: relative;
+    margin: auto;
+    padding: 20px;
+    width: 90%;
+    max-width: 800px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#lightbox-img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    max-height: 70vh;
+    object-fit: contain;
+}
+
+.lightbox-caption {
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.lightbox-close:hover {
+    color: var(--secondary);
+}
+
+.lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.2);
+    color: white;
+    border: none;
+    font-size: 24px;
+    padding: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.lightbox-prev {
+    left: 20px;
+}
+
+.lightbox-next {
+    right: 20px;
+}
+
+.lightbox-nav:hover {
+    background: rgba(255,255,255,0.3);
+}
+
+/* Responsive Gallery */
+@media (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+    
+    .gallery-filter {
+        gap: 0.5rem;
+    }
+    
+    .gallery-filter-btn {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .gallery-image-container {
+        height: 250px;
+    }
+
+    .lightbox-content {
+        width: 95%;
+        padding: 10px;
+    }
+
+    .lightbox-close {
+        top: 10px;
+        right: 20px;
+        font-size: 30px;
+    }
+
+    .lightbox-nav {
+        padding: 0.5rem;
+        font-size: 18px;
+    }
+}

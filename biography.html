@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biography - Allama Shibli Nomani</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .biography-hero {
+            background: linear-gradient(rgba(26, 82, 118, 0.9), rgba(40, 116, 166, 0.9)), 
+                        url('https:/images.unsplash.com/photo-1551632811-561732d1e306?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 6rem 0 4rem;
+            color: white;
+            text-align: center;
+        }
+
+        .early-life {
+            padding: 5rem 0;
+            background: var(--white);
+        }
+
+        .life-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .life-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+            border-top: 5px solid var(--primary);
+        }
+
+        .life-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .life-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .timeline-section {
+            padding: 5rem 0;
+            background: var(--light);
+        }
+
+        .detailed-bio {
+            padding: 5rem 0;
+            background: var(--white);
+        }
+
+        .bio-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .bio-section {
+            margin-bottom: 3rem;
+        }
+
+        .bio-section h3 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--secondary);
+        }
+
+        .bio-section p {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, var(--light) 0%, #fef9e7 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 5px solid var(--secondary);
+            margin: 2rem 0;
+        }
+
+        .hayat-shibli {
+            background: linear-gradient(135deg, #1a5276 0%, #2874a6 100%);
+            color: white;
+            padding: 4rem 0;
+            margin: 3rem 0;
+            border-radius: 20px;
+        }
+
+        .hayat-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hayat-cover {
+            text-align: center;
+        }
+
+        .hayat-cover img {
+            max-width: 300px;
+            border-radius: 10px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+        }
+
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .achievement-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .quote-card {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            text-align: center;
+            margin: 3rem 0;
+            position: relative;
+        }
+
+        .quote-card::before {
+            content: '"';
+            font-size: 6rem;
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            opacity: 0.3;
+            font-family: serif;
+        }
+
+        .quote-text {
+            font-size: 1.3rem;
+            font-style: italic;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .quote-author {
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        @media (max-width: 768px) {
+            .hayat-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .hayat-cover img {
+                max-width: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <i class="fas fa-book"></i>
+                    Allama Shibli Nomani
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="biography.html" class="active">Biography</a></li>
+                    <li><a href="works.html">Works</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="legacy.html">Legacy</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Biography Hero -->
+    <section class="biography-hero">
+        <div class="container">
+            <h1>Biography</h1>
+            <p class="hero-subtitle">The Life Journey of a Great Scholar, Historian and Educational Reformer</p>
+        </div>
+    </section>
+
+    <!-- Early Life -->
+    <section class="early-life">
+        <div class="container">
+            <h2>Early Life & Education</h2>
+            <div class="life-grid">
+                <div class="life-card">
+                    <div class="life-icon">
+                        <i class="fas fa-birthday-cake"></i>
+                    </div>
+                    <h3>Birth & Family Background</h3>
+                    <p>Born on June 3, 1857 in Bindwal, Azamgarh district, Uttar Pradesh. Descended from a respected family of Mughal administrators and scholars with a rich intellectual heritage.</p>
+                </div>
+                <div class="life-card">
+                    <div class="life-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Early Education</h3>
+                    <p>Received traditional Islamic education, memorizing the Quran at an early age. Studied Persian and Arabic literature extensively under local scholars in Azamgarh.</p>
+                </div>
+                <div class="life-card">
+                    <div class="life-icon">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h3>Higher Studies</h3>
+                    <p>Studied under Maulana Muhammad Farooq Chirayakoti, a rationalist scholar who greatly influenced his thinking and methodology. Later studied in Lucknow and Rampur.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed Biography -->
+    <section class="detailed-bio">
+        <div class="container">
+            <div class="bio-content">
+                <div class="bio-section">
+                    <h3>Intellectual Formation</h3>
+                    <p>Allama Shibli Nomani's intellectual journey began under the guidance of Maulana Muhammad Farooq Chirayakoti, who introduced him to rationalist thought and modern critical methods. His early exposure to both traditional Islamic sciences and modern Western thought created a unique intellectual foundation that would characterize his entire career.</p>
+                    
+                    <div class="highlight-box">
+                        <h4>Key Intellectual Influences:</h4>
+                        <p><strong>Traditional Scholarship:</strong> Deep grounding in Quranic studies, Hadith, Fiqh, and Islamic history</p>
+                        <p><strong>Modern Thought:</strong> Exposure to Western historical methods and critical analysis</p>
+                        <p><strong>Literary Excellence:</strong> Mastery of Arabic, Persian, and Urdu literature</p>
+                    </div>
+                </div>
+
+                <div class="bio-section">
+                    <h3>Aligarh Movement Period (1883-1898)</h3>
+                    <p>Shibli Nomani joined Muhammadan Anglo-Oriental College (now Aligarh Muslim University) in 1883, where he served as a professor of Arabic and Persian. This period was crucial for his intellectual development:</p>
+                    
+                    <p><strong>Collaboration with Sir Syed Ahmed Khan:</strong> Worked closely with the founder of Aligarh movement, though they had ideological differences regarding modern education and Islamic reform.</p>
+                    
+                    <p><strong>Academic Contributions:</strong> Revitalized the Arabic and Persian departments, introduced modern teaching methods, and began his major research works.</p>
+                    
+                    <p><strong>Intellectual Independence:</strong> While appreciating Sir Syed's educational vision, Shibli maintained his distinct approach to Islamic scholarship and historical writing.</p>
+                </div>
+
+                <div class="bio-section">
+                    <h3>Founding of Nadwatul Ulama (1894)</h3>
+                    <p>Shibli played a pivotal role in establishing Nadwatul Ulama in Lucknow, envisioning it as a reformist institution that would bridge the gap between traditional Deobandi education and modern Aligarh-style education.</p>
+                    
+                    <p><strong>Vision for Nadwa:</strong> To create a balanced educational system that combined traditional Islamic learning with modern sciences and critical thinking.</p>
+                    
+                    <p><strong>Educational Philosophy:</strong> Believed in the integration of religious and worldly knowledge, rejecting the dichotomy between "religious" and "modern" education.</p>
+                </div>
+
+                <div class="bio-section">
+                    <h3>Literary and Historical Contributions</h3>
+                    <p>Shibli Nomani's most enduring legacy lies in his historical and biographical works that revolutionized Islamic scholarship in South Asia:</p>
+                    
+                    <div class="achievements-grid">
+                        <div class="achievement-card">
+                            <h4>Critical Methodology</h4>
+                            <p>Introduced modern historical critical methods to Islamic biography</p>
+                        </div>
+                        <div class="achievement-card">
+                            <h4>Literary Excellence</h4>
+                            <p>Elevated Urdu prose to new heights of elegance and precision</p>
+                        </div>
+                        <div class="achievement-card">
+                            <h4>Research Rigor</h4>
+                            <p>Pioneered archival research and source criticism in Islamic studies</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bio-section">
+                    <h3>Founding of Darul Musannefin (1914)</h3>
+                    <p>In 1914, Shibli Nomani established Darul Musannefin (The House of Writers) in Azamgarh, which later became Shibli Academy. This institution represented the culmination of his life's work:</p>
+                    
+                    <p><strong>Research Center:</strong> Established as a premier institution for Islamic research and scholarship</p>
+                    <p><strong>Journal Publication:</strong> Launched "Ma'arif," one of the most respected literary magazines in Urdu</p>
+                    <p><strong>Institutional Legacy:</strong> Created a sustainable model for scholarly research and publication</p>
+                </div>
+
+                <div class="quote-card">
+                    <div class="quote-text">
+                        "The purpose of knowledge is not just to know, but to act. True scholarship lies in serving humanity and preserving our intellectual heritage for future generations."
+                    </div>
+                    <div class="quote-author">- Allama Shibli Nomani</div>
+                </div>
+
+                <div class="bio-section">
+                    <h3>Final Years and Legacy</h3>
+                    <p>Shibli Nomani passed away on November 18, 1914, but his legacy continued through his students and the institutions he founded:</p>
+                    
+                    <p><strong>Students and Disciples:</strong> Mentored generations of scholars including Syed Sulaiman Nadvi, who completed his unfinished works and carried forward his mission.</p>
+                    
+                    <p><strong>Institutional Impact:</strong> Shibli Academy continues to operate as a premier research institution, while Nadwatul Ulama remains an important educational center.</p>
+                    
+                    <p><strong>Intellectual Heritage:</strong> His critical historical method and literary style influenced generations of South Asian Muslim intellectuals.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hayat-e-Shibli Section -->
+    <section class="hayat-shibli">
+        <div class="container">
+            <h2 style="color: white; text-align: center; margin-bottom: 3rem;">Hayat-e-Shibli: The Definitive Biography</h2>
+            <div class="hayat-content">
+                <div class="hayat-cover">
+                    <img src="images/hayat-e-shibli.jpg" alt="Hayat-e-Shibli Cover">
+                    <p style="margin-top: 1rem; font-style: italic;">By Syed Sulaiman Nadvi</p>
+                </div>
+                <div class="hayat-details">
+                    <h3>About the Biography</h3>
+                    <p><strong>Hayat-e-Shibli</strong> is the most comprehensive and authoritative biography of Allama Shibli Nomani, written by his most prominent student and successor, Syed Sulaiman Nadvi.</p>
+                    
+                    <h4 style="margin-top: 2rem;">Key Features:</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 0.8rem;">📖 <strong>Comprehensive Coverage:</strong> Detailed account from birth to final days</li>
+                        <li style="margin-bottom: 0.8rem;">🎓 <strong>Intellectual Journey:</strong> Analysis of his scholarly development and contributions</li>
+                        <li style="margin-bottom: 0.8rem;">💡 <strong>Personal Insights:</strong> Based on first-hand knowledge and personal interactions</li>
+                        <li style="margin-bottom: 0.8rem;">📚 <strong>Literary Analysis:</strong> Critical examination of all his major works</li>
+                        <li style="margin-bottom: 0.8rem;">🏛️ <strong>Institutional History:</strong> Detailed account of founding Shibli Academy and Nadwatul Ulama</li>
+                    </ul>
+
+                    <!-- <div style="margin-top: 2rem;">
+                        <a href="#" class="btn" style="background: var(--secondary); color: var(--primary); margin-right: 1rem;">
+                            <i class="fas fa-book-open"></i> Read Online
+                        </a>
+                        <a href="#" class="btn" style="background: transparent; border: 2px solid white; color: white;">
+                            <i class="fas fa-download"></i> Download PDF
+                        </a>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Timeline -->
+    <section class="timeline-section">
+        <div class="container">
+            <h2>Life Timeline</h2>
+            <div class="timeline" id="mainTimeline">
+                <!-- Timeline will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Allama Shibli Nomani</h3>
+                    <p>The legacy of a great scholar, historian, and educational reformer continues to inspire generations.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="biography.html">Biography</a></li>
+                        <li><a href="works.html">Works</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="legacy.html">Legacy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="works.html">Books & Publications</a></li>
+                        <li><a href="gallery.html">Photo Archive</a></li>
+                        <li><a href="legacy.html">Shibli Academy</a></li>
+                        <li><a href="contact.html">Research Materials</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Darul Musannefin Shibli Academy, Azamgarh, India</p>
+                    <p><i class="fas fa-envelope"></i> info@shiblinomani.org</p>
+                    <p><i class="fas fa-phone"></i> +91-XXXX-XXXXXX</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Allama Shibli Nomani Research Foundation. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/timeline.js"></script>
+</body>
+</html>

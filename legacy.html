@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legacy - Allama Shibli Nomani</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .legacy-hero {
+            background: linear-gradient(rgba(26, 82, 118, 0.9), rgba(40, 116, 166, 0.9)), 
+                        url('https://images.unsplash.com/photo-1564059813745-b75dc6e9415f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 6rem 0 4rem;
+            color: white;
+            text-align: center;
+        }
+
+        .legacy-content {
+            padding: 5rem 0;
+            background: var(--white);
+        }
+
+        .legacy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .legacy-card {
+            background: linear-gradient(135deg, var(--light) 0%, var(--white) 100%);
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border-top: 5px solid var(--primary);
+        }
+
+        .legacy-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .legacy-icon {
+            font-size: 3.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .institutions-section {
+            padding: 5rem 0;
+            background: var(--light);
+        }
+
+        .institution-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .institution-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .institution-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+
+        .institution-image {
+            width: 100%;
+            height: 200px;
+            background: var(--light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--primary);
+        }
+
+        .institution-content {
+            padding: 2rem;
+        }
+
+        .impact-section {
+            padding: 5rem 0;
+            background: var(--white);
+        }
+
+        .impact-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .impact-stat {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--dark);
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <i class="fas fa-book"></i>
+                    Allama Shibli Nomani
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="biography.html">Biography</a></li>
+                    <li><a href="works.html">Works</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="legacy.html" class="active">Legacy</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="legacy-hero">
+        <div class="container">
+            <h1>Legacy & Impact</h1>
+            <p class="hero-subtitle">The Enduring Influence of a Great Scholar</p>
+        </div>
+    </section>
+
+    <section class="legacy-content">
+        <div class="container">
+            <div class="legacy-grid">
+                <div class="legacy-card">
+                    <div class="legacy-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <h3>Shibli Academy</h3>
+                    <p>Founded Darul Musannefin Shibli Academy in 1914, which continues to be a premier institution for Islamic research and scholarship, publishing numerous academic works and the renowned journal "Ma'arif".</p>
+                    <a href="gallery.html" class="btn btn-outline">Visit Academy</a>
+                </div>
+
+                <div class="legacy-card">
+                    <div class="legacy-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Shibli National College</h3>
+                    <p>Educational institution named in his honor, promoting modern education and preserving his legacy of knowledge and reform. Continues to educate thousands of students in Azamgarh.</p>
+                    <a href="gallery.html" class="btn btn-outline">Visit College</a>
+                </div>
+
+                <div class="legacy-card">
+                    <div class="legacy-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Students & Disciples</h3>
+                    <p>Mentored generations of scholars including Syed Sulaiman Nadvi, who continued his work and completed his unfinished projects, ensuring the continuity of his intellectual tradition.</p>
+                </div>
+
+                <div class="legacy-card">
+                    <div class="legacy-icon">
+                        <i class="fas fa-pen-nib"></i>
+                    </div>
+                    <h3>Literary Influence</h3>
+                    <p>Revolutionized Urdu prose and Islamic historiography with his critical methodology and literary excellence. His works continue to be standard references in Islamic studies.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="institutions-section">
+        <div class="container">
+            <h2>Educational Institutions</h2>
+            <div class="institution-grid">
+                <div class="institution-card">
+                    <div class="institution-image">
+                        <i class="fas fa-landmark"></i>
+                    </div>
+                    <div class="institution-content">
+                        <h3>Darul Musannefin Shibli Academy</h3>
+                        <p>Established in 1914 in Azamgarh, this premier research institution continues Shibli's mission of promoting Islamic scholarship and research. It houses a vast library and publishes academic works.</p>
+                        <div class="work-links">
+                            <a href="https://en.wikipedia.org/wiki/Darul_Musannefin_Shibli_Academy" target="_blank" rel="noopener noreferrer" class="work-link wiki-link">
+                                <i class="fab fa-wikipedia-w"></i>
+                                Wikipedia Info
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="institution-card">
+                    <div class="institution-image">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="institution-content">
+                        <h3>Shibli National College</h3>
+                        <p>Named in honor of Allama Shibli Nomani, this college in Azamgarh provides modern education while preserving traditional values. It stands as a living tribute to his educational vision.</p>
+                        <div class="work-links">
+                            <a href="https://en.wikipedia.org/wiki/Shibli_National_College" target="_blank" rel="noopener noreferrer" class="work-link wiki-link">
+                                <i class="fab fa-wikipedia-w"></i>
+                                Wikipedia Info
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="institution-card">
+                    <div class="institution-image">
+                        <i class="fas fa-mosque"></i>
+                    </div>
+                    <div class="institution-content">
+                        <h3>Nadwatul Ulama</h3>
+                        <p>Co-founded by Shibli Nomani in 1894, this institution in Lucknow continues to bridge traditional Islamic education with modern learning, reflecting his reformist vision.</p>
+                        <div class="work-links">
+                            <a href="https://en.wikipedia.org/wiki/Nadwatul_Ulama" target="_blank" rel="noopener noreferrer" class="work-link wiki-link">
+                                <i class="fab fa-wikipedia-w"></i>
+                                Wikipedia Info
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="impact-section">
+        <div class="container">
+            <h2>Lasting Impact</h2>
+            <div class="impact-stats">
+                <div class="impact-stat">
+                    <div class="stat-number">100+</div>
+                    <div class="stat-label">Years of Legacy</div>
+                </div>
+                <div class="impact-stat">
+                    <div class="stat-number">25+</div>
+                    <div class="stat-label">Major Publications</div>
+                </div>
+                <div class="impact-stat">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Institutions Founded</div>
+                </div>
+                <div class="impact-stat">
+                    <div class="stat-number">1000+</div>
+                    <div class="stat-label">Students Influenced</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Allama Shibli Nomani</h3>
+                    <p>The legacy of a great scholar, historian, and educational reformer continues to inspire generations.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="biography.html">Biography</a></li>
+                        <li><a href="works.html">Works</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="legacy.html">Legacy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="works.html">Books & Publications</a></li>
+                        <li><a href="gallery.html">Photo Archive</a></li>
+                        <li><a href="legacy.html">Shibli Academy</a></li>
+                        <li><a href="contact.html">Research Materials</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Darul Musannefin Shibli Academy, Azamgarh, India</p>
+                    <p><i class="fas fa-envelope"></i> info@shiblinomani.org</p>
+                    <p><i class="fas fa-phone"></i> +91-XXXX-XXXXXX</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Allama Shibli Nomani Research Foundation. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

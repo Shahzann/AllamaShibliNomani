@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Works - Allama Shibli Nomani</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .works-hero {
+            background: linear-gradient(rgba(26, 82, 118, 0.9), rgba(40, 116, 166, 0.9)), 
+                        url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 6rem 0 4rem;
+            color: white;
+            text-align: center;
+        }
+
+        .works-section {
+            padding: 5rem 0;
+        }
+
+        .works-filter {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.8rem 1.5rem;
+            border: 2px solid var(--primary);
+            background: transparent;
+            color: var(--primary);
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .works-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .work-item {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border-left: 5px solid var(--primary);
+        }
+
+        .work-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .work-image {
+            width: 100%;
+            height: 200px;
+            background: var(--light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--primary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .work-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(26, 82, 118, 0.1), rgba(212, 172, 13, 0.1));
+        }
+
+        .work-content {
+            padding: 2rem;
+        }
+
+        .work-category {
+            display: inline-block;
+            background: var(--light);
+            color: var(--primary);
+            padding: 0.3rem 1rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .work-links {
+            margin-top: 1.5rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .work-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--primary);
+            border-radius: 5px;
+        }
+
+        .work-link:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .work-language {
+            display: inline-block;
+            background: var(--secondary);
+            color: var(--primary);
+            padding: 0.2rem 0.8rem;
+            border-radius: 10px;
+            font-size: 0.7rem;
+            margin-left: 0.5rem;
+            font-weight: bold;
+        }
+
+        .work-stats {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+
+        .work-stat {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .works-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        /* Wikipedia link specific style */
+        .wiki-link {
+            background: #0066cc;
+            border-color: #0066cc;
+            color: white;
+        }
+
+        .wiki-link:hover {
+            background: #0052a3;
+            color: white;
+        }
+
+        /* Category-specific colors */
+        .work-item[data-category="biography"] {
+            border-left-color: #e74c3c;
+        }
+
+        .work-item[data-category="biography"] .work-category {
+            background: #ffeaea;
+            color: #e74c3c;
+        }
+
+        .work-item[data-category="history"] {
+            border-left-color: #3498db;
+        }
+
+        .work-item[data-category="history"] .work-category {
+            background: #eaf2f8;
+            color: #3498db;
+        }
+
+        .work-item[data-category="literature"] {
+            border-left-color: #9b59b6;
+        }
+
+        .work-item[data-category="literature"] .work-category {
+            background: #f4ecf7;
+            color: #9b59b6;
+        }
+
+        .work-item[data-category="criticism"] {
+            border-left-color: #f39c12;
+        }
+
+        .work-item[data-category="criticism"] .work-category {
+            background: #fef5e7;
+            color: #f39c12;
+        }
+
+        .work-item[data-category="poetry"] {
+            border-left-color: #27ae60;
+        }
+
+        .work-item[data-category="poetry"] .work-category {
+            background: #eafaf1;
+            color: #27ae60;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <i class="fas fa-book"></i>
+                    Allama Shibli Nomani
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="biography.html">Biography</a></li>
+                    <li><a href="works.html" class="active">Works</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="legacy.html">Legacy</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="works-hero">
+        <div class="container">
+            <h1>Literary Works</h1>
+            <p class="hero-subtitle">Masterpieces of Islamic Historiography and Literature</p>
+        </div>
+    </section>
+
+    <section class="works-section">
+        <div class="container">
+            <div class="works-intro">
+                <p>Allama Shibli Nomani was a prolific writer who authored more than 25 major works spanning biographies, history, literary criticism, and poetry. His works are characterized by rigorous research, critical analysis, and elegant prose that revolutionized Islamic scholarship in the Indian subcontinent.</p>
+            </div>
+
+            <div class="works-filter">
+                <button class="filter-btn active" data-filter="all">All Works</button>
+                <button class="filter-btn" data-filter="biography">Biographies</button>
+                <button class="filter-btn" data-filter="history">History</button>
+                <button class="filter-btn" data-filter="literature">Literature</button>
+                <button class="filter-btn" data-filter="criticism">Criticism</button>
+                <button class="filter-btn" data-filter="poetry">Poetry</button>
+            </div>
+
+            <div class="works-grid" id="worksGrid">
+                <!-- Biographies -->
+                <div class="work-item" data-category="biography">
+                    <div class="work-image">
+                        <i class="fas fa-quran"></i>
+                    </div>
+                    <div class="work-content">
+                        <span class="work-category">Biography</span>
+                        <h3 id="sirat-un-nabi">Sirat-un-Nabi</h3>
+                        <p>The monumental biography of Prophet Muhammad, considered his magnum opus. Left incomplete and later finished by his student Syed Suleman Nadvi. A masterpiece of Islamic historiography that set new standards for biographical writing.</p>
+                        <div class="work-stats">
+                            <span class="work-stat"><i class="fas fa-book"></i> 8 Volumes</span>
+                            <span class="work-stat"><i class="fas fa-language"></i> Urdu</span>
+                        </div>
+                        <div class="work-links">
+                            <a href="https://en.wikipedia.org/wiki/Sirat-un-Nabi" target="_blank" class="work-link wiki-link">
+                                <i class="fab fa-wikipedia-w"></i>
+                                Wikipedia Info
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="work-item" data-category="biography">
+                    <div class="work-image">
+                        <i class="fas fa-history"></i>
+                    </div>
+                    <div class="work-content">
+                        <span class="work-category">Biography</span>
+                        <h3 id="al-farooq">Al-Farooq</h3>
+                        <p>Landmark biography of the second Caliph, Umar ibn al-Khattab. Set new standards for Islamic biographical writing with critical historical analysis and comprehensive coverage of his life and contributions to Islamic civilization.</p>
+                        <div class="work-stats">
+                            <span class="work-stat"><i class="fas fa-book"></i> 2 Volumes</span>
+                            <span class="work-stat"><i class="fas fa-language"></i> Urdu</span>
+                        </div>
+                        <div class="work-links">
+                            <a href="https://en.wikipedia.org/wiki/Al-Faruq_(book)" target="_blank" class="work-link wiki-link">
+                                <i class="fab fa-wikipedia-w"></i>
+                                Wikipedia Info
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="work-item" data-category="biography">
+                    <div class="work-image">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <div class="work-content">
+                        <span class="work-category">Biography</span>
+                        <h3 id="al-mamoon">Al-Mamoon</h3>
+                        <p>Comprehensive biography of the Abbasid Caliph Al-Ma'mun, exploring his contributions to Islamic civilization, science, and the translation movement during the Golden Age of Islam.</p>
+                        <div class="work-stats">
+                            <span class="work-stat"><i class="fas fa-book"></i> 1 Volume</span>
+                            <span class="work-stat"><i class="fas fa-language"></i> Urdu</span>
+                        </div>
+                        <div class="work-links">
+                            <a href="https://en.wikipedia.org/wiki/Al-Ma%27mun" target="_blank" class="work-link wiki-link">
+                                <i class="fab fa-wikipedia-w"></i>
+                                Wikipedia Info
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="work-item" data-category="biography">
+                    <div class="work-image">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <div class="work-content">
+                        <span class="work-category">Biography</span>
+                        <h3 id="al-ghazali">Al-Ghazali</h3>
+                        <p>Detailed study of the life and works of Imam Al-Ghazali, focusing on his spiritual journey, philosophical contributions, and lasting impact on Islamic thought and Sufism.</p>
+                        <div class="work-stats">
+                            <span class="work-stat"><i class="fas fa-book"></i> 1 Volume</span>
+                            <span class="work-stat"><i class="fas fa-language"></i> Urdu</span>
+                        </div>
+                        <div class="work-links">
+                            <a href="https://en.wikipedia.org/wiki/Al-Ghazali" target="_blank" class="work-link wiki-link">
+                                <i class="fab fa-wikipedia-w"></i>
+                                Wikipedia Info
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="work-item" data-category="biography">
+                    <div class="work-image">
+                        <i class="fas fa-star-of-david"></i>
+                    </div>
+                    <div class="work-content">
+                        <span class="work-category">Biography</span>
+                        <h3 id="ibn-e-tamia">Imam Ibn-e-Tamia</h3>
+                        <p>Biography of the renowned Islamic scholar Ibn Taymiyyah, examining his theological positions, juristic opinions, and profound influence on Islamic thought and reform movements.</p>
+                        <div class="work-stats">
+                            <span class="work-stat"><i class="fas fa-book"></i> 1 Volume</span>
+                            <span class="work-stat"><i class="fas fa-language"></i> Urdu</span>
+                        </div>
+                        <div class="work-links">
+                            <a href="https://en.wikipedia.org/wiki/Ibn_Taymiyyah" target="_blank" class="work-link wiki-link">
+                                <i class="fab fa-wikipedia-w"></i>
+                                Wikipedia Info
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Historical Works -->
+                <div class="work-item" data-category="history">
+                    <div class="work-image">
+                        <i class="fas fa-pen-fancy"></i>
+                    </div>
+                    <div class="work-content">
+                        <span class="work-category">History</span>
+                        <h3 id="sher-ul-ajam">Sher-ul-Ajam</h3>
+                        <p>Five-volume history of Persian poetry, considered a classic in literary criticism and historical analysis of Persian literature from early to modern periods.</p>
+                        <div class="work-stats">
+                            <span class="work-stat"><i class="fas fa-book"></i> 5 Volumes</span>
+                            <span class="work-stat"><i class="fas fa-language"></i> Urdu</span>
+                        </div>
+                        <div class="work-links">
+                            <a href="https://en.wikipedia.org/wiki/Persian_literature" target="_blank" class="work-link wiki-link">
+                                <i class="fab fa-wikipedia-w"></i>
+                                Wikipedia Info
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="work-item" data-category="history">
+                    <div class="work-image">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <div class="work-content">
+                        <span class="work-category">History</span>
+                        <h3 id="ilm-ul-kalam">Ilm-ul-Kalam</h3>
+                        <p>Comprehensive study of Islamic theology, exploring the development of theological thought in Islam, major theological schools, and philosophical debates in Islamic history.</p>
+                        <div class="work-stats">
+                            <span class="work-stat"><i class="fas fa-book"></i> 1 Volume</span>
+                            <span class="work-stat"><i class="fas fa-language"></i> Urdu</span>
+                        </div>
+                        <div class="work-links">
+                            <a href="https://en.wikipedia.org/wiki/Ilm_al-Kalam" target="_blank" class="work-link wiki-link">
+                                <i class="fab fa-wikipedia-w"></i>
+                                Wikipedia Info
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="work-item" data-category="history">
+                    <div class="work-image">
+                        <i class="fas fa-mosque"></i>
+                    </div>
+                    <div class="work-content">
+                        <span class="work-category">History</span>
+                        <h3 id="seerat-un-noman">Seerat-un-Noman</h3>
+                        <p>Biography of Imam Abu Hanifa, founder of the Hanafi school of Islamic jurisprudence, detailing his life, methodology, and lasting contributions to Islamic law.</p>
+                        <div class="work-stats">
+                            <span class="work-stat"><i class="fas fa-book"></i> 1 Volume</span>
+                            <span class="work-stat"><i class="fas fa-language"></i> Urdu</span>
+                        </div>
+                        <div class="work-links">
+                            <a href="https://en.wikipedia.org/wiki/Abu_Hanifa" target="_blank" class="work-link wiki-link">
+                                <i class="fab fa-wikipedia-w"></i>
+                                Wikipedia Info
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Literary Criticism -->
+                <div class="work-item" data-category="criticism">
+                    <div class="work-image">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <div class="work-content">
+                        <span class="work-category">Literary Criticism</span>
+                        <h3 id="mawazina">Mawazina-e-Anis-o-Dabir</h3>
+                        <p>Critical comparison of the two great masters of Urdu Marsiya (elegy) poetry, Mir Babar Ali Anis and Mirza Salaamat Ali Dabir, analyzing their styles and contributions.</p>
+                        <div class="work-stats">
+                            <span class="work-stat"><i class="fas fa-book"></i> 1 Volume</span>
+                            <span class="work-stat"><i class="fas fa-language"></i> Urdu</span>
+                        </div>
+                        <div class="work-links">
+                            <a href="https://en.wikipedia.org/wiki/Mir_Anis" target="_blank" class="work-link wiki-link">
+                                <i class="fab fa-wikipedia-w"></i>
+                                Wikipedia Info
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="work-item" data-category="criticism">
+                    <div class="work-image">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <div class="work-content">
+                        <span class="work-category">Literary Criticism</span>
+                        <h3 id="muqalma">Muqalma-e-Shibli-o-Azad</h3>
+                        <p>Literary debates and correspondence between Shibli Nomani and Altaf Hussain Hali, discussing various aspects of literature, reform, and contemporary issues.</p>
+                        <div class="work-stats">
+                            <span class="work-stat"><i class="fas fa-book"></i> 1 Volume</span>
+                            <span class="work-stat"><i class="fas fa-language"></i> Urdu</span>
+                        </div>
+                        <div class="work-links">
+                            <a href="https://en.wikipedia.org/wiki/Altaf_Husain_Hali" target="_blank" class="work-link wiki-link">
+                                <i class="fab fa-wikipedia-w"></i>
+                                Wikipedia Info
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Poetry -->
+                <div class="work-item" data-category="poetry">
+                    <div class="work-image">
+                        <i class="fas fa-feather-alt"></i>
+                    </div>
+                    <div class="work-content">
+                        <span class="work-category">Poetry</span>
+                        <h3 id="kulliyat">Kulliyat-e-Shibli</h3>
+                        <p>Complete collection of Shibli Nomani's Urdu poetry, showcasing his poetic talent and mastery of various poetic forms including ghazals, nazms, and rubaiyat.</p>
+                        <div class="work-stats">
+                            <span class="work-stat"><i class="fas fa-book"></i> 1 Volume</span>
+                            <span class="work-stat"><i class="fas fa-language"></i> Urdu</span>
+                        </div>
+                        <div class="work-links">
+                            <a href="https://en.wikipedia.org/wiki/Urdu_literature" target="_blank" class="work-link wiki-link">
+                                <i class="fab fa-wikipedia-w"></i>
+                                Wikipedia Info
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="work-item" data-category="poetry">
+                    <div class="work-image">
+                        <i class="fas fa-feather"></i>
+                    </div>
+                    <div class="work-content">
+                        <span class="work-category">Poetry</span>
+                        <h3 id="sher-ajam">She'r-ul-Ajam</h3>
+                        <p>Collection of Persian poetry by Shibli Nomani, demonstrating his proficiency in Persian language and classical poetic traditions of Persian literature.</p>
+                        <div class="work-stats">
+                            <span class="work-stat"><i class="fas fa-book"></i> 1 Volume</span>
+                            <span class="work-stat"><i class="fas fa-language"></i> Persian</span>
+                        </div>
+                        <div class="work-links">
+                            <a href="https://en.wikipedia.org/wiki/Persian_language" target="_blank" class="work-link wiki-link">
+                                <i class="fab fa-wikipedia-w"></i>
+                                Wikipedia Info
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Allama Shibli Nomani</h3>
+                    <p>The legacy of a great scholar, historian, and educational reformer continues to inspire generations.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="biography.html">Biography</a></li>
+                        <li><a href="works.html">Works</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="legacy.html">Legacy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="works.html">Books & Publications</a></li>
+                        <li><a href="gallery.html">Photo Archive</a></li>
+                        <li><a href="legacy.html">Shibli Academy</a></li>
+                        <li><a href="contact.html">Research Materials</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Darul Musannefin Shibli Academy, Azamgarh, India</p>
+                    <p><i class="fas fa-envelope"></i> info@shiblinomani.org</p>
+                    <p><i class="fas fa-phone"></i> +91-XXXX-XXXXXX</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Allama Shibli Nomani Research Foundation. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/works-filter.js"></script>
+</body>
+</html>
